@@ -11,11 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BookAdvice {
 
-	@ExceptionHandler(Exception.class)
-	public Object handleGeneralException(Exception e){
-		log.info("occur general exception", e);
-		return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-	}
+    @ExceptionHandler(Exception.class)
+    public Object handleGeneralException(Exception e){
+        log.info("occur general exception", e);
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 
 	@ExceptionHandler(NullPointerException.class)
 	public Object handleNullPointerException(Exception e){
