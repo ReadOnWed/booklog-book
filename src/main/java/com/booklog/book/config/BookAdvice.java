@@ -1,4 +1,4 @@
-package com.booklog.book.book.controller;
+package com.booklog.book.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RestControllerAdvice(basePackages = "com.booklog.book.book.controller")
+@RestControllerAdvice
 @Slf4j
 public class BookAdvice {
 
