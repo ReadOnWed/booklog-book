@@ -16,12 +16,12 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/books/search")
+@RequestMapping("/v1/books")
 @Slf4j
 public class SearchBookInfoController {
     private final SearchBookInfoFacadeService searchBookInfoFacadeService;
 
-    @GetMapping("")
+    @GetMapping("/search")
     public ResponseEntity<List<BookInfoDto>> searchBookInfos(
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String category,
