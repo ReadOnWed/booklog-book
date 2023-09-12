@@ -36,5 +36,10 @@ out/
 ### VS Code ###
 .vscode/
 
+/localstack/docker-compose.yml
 /localstack/mongodb/
 /localstack/mongodb/*
+
+/src/main/resources/application-local.properties
+/src/main/java/com/booklog/book/controller
+/src/main/java/com/booklog/book/dto
