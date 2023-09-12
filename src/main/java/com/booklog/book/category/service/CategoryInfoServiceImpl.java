@@ -13,6 +13,6 @@ public class CategoryInfoServiceImpl implements CategoryInfoService{
     private final CategoryInfoRepository categoryInfoRepository;
     @Override
     public List<Category> findCategories() {
-        return categoryInfoRepository.findCategories();
+        return Category.of(categoryInfoRepository.findDistinctMainCategory());
     }
 }

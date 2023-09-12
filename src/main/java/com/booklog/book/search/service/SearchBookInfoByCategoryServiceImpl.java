@@ -1,5 +1,6 @@
 package com.booklog.book.search.service;
 
+import com.booklog.book.category.common.MainCategoryEnum;
 import com.booklog.book.search.common.SearchBookInfoServiceBeanName;
 import com.booklog.book.bookinfo.dto.BookInfoDto;
 import com.booklog.book.search.repository.SearchBookInfoByCategoryRepository;
@@ -17,7 +18,10 @@ public class SearchBookInfoByCategoryServiceImpl implements SearchBookInfoServic
 
     @Override
     public List<BookInfoDto> findBookInfos(String category) {
-        log.info("searching book by category : {} in book category service...",category);
+        System.out.println("test");
+        log.info("searching book by category : {} in book category service..."
+                , MainCategoryEnum.getDescriptionByCategory(category)
+                        .orElseThrow(() -> new IllegalArgumentException("Invalid Category Code: " + category)));
         return searchBookInfoByCategoryRepository.findBookInfos(category);
     }
 }
