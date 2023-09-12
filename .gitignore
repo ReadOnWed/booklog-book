@@ -43,3 +43,5 @@ out/
 /src/main/resources/application-local.properties
 /src/main/java/com/booklog/book/controller
 /src/main/java/com/booklog/book/dto
+
+/docker-compose.yml
