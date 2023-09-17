@@ -1,6 +1,6 @@
 package com.booklog.book.search.repository;
 
-import com.booklog.book.bookinfo.dto.BookInfoDto;
+import com.booklog.book.promotion.dto.BookInfoDto;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package com.booklog.book.search.service;
 
 import com.booklog.book.search.common.SearchBookInfoServiceBeanName;
-import com.booklog.book.bookinfo.dto.BookInfoDto;
+import com.booklog.book.promotion.dto.BookInfoDto;
 import com.booklog.book.search.repository.SearchBookInfoByAuthorRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

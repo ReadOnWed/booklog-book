@@ -1,6 +1,6 @@
 package com.booklog.book.search.controller;
 
-import com.booklog.book.bookinfo.dto.BookInfoDto;
+import com.booklog.book.promotion.dto.BookInfoDto;
 import com.booklog.book.search.dto.BookInfoSearchTermDto;
 import com.booklog.book.search.service.SearchBookInfoFacadeService;
 import lombok.RequiredArgsConstructor;
