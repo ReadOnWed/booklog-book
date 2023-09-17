@@ -1,7 +1,9 @@
 package com.booklog.book.bookdetail.repository;
 
-import com.booklog.book.bookdetail.dto.BookDetail;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface BookDetailRepository {
-    BookDetail findBookDetailById(String bookId);
+import com.booklog.book.bookdetail.entity.BookEntity;
+
+public interface BookDetailRepository extends MongoRepository<BookEntity, String> {
+    BookEntity findBookEntityByBookId(String bookId);
 }

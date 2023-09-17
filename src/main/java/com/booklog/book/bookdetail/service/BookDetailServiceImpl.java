@@ -1,6 +1,6 @@
 package com.booklog.book.bookdetail.service;
 
-import com.booklog.book.bookdetail.dto.BookDetail;
+import com.booklog.book.bookdetail.dto.Book;
 import com.booklog.book.bookdetail.repository.BookDetailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class BookDetailServiceImpl implements BookDetailService{
     private final BookDetailRepository bookDetailRepository;
     @Override
-    public BookDetail findBookDetailById(String bookId) {
-        return bookDetailRepository.findBookDetailById(bookId);
+    public Book findBookDetailById(String bookId) {
+        return Book.of(bookDetailRepository.findBookEntityByBookId(bookId));
     }
 }

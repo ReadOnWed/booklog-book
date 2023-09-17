@@ -1,6 +1,6 @@
 package com.booklog.book.bookdetail.controller;
 
-import com.booklog.book.bookdetail.dto.BookDetail;
+import com.booklog.book.bookdetail.dto.Book;
 import com.booklog.book.bookdetail.service.BookDetailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookDetailController {
     private final BookDetailService bookDetailService;
     @GetMapping("/details")
-    public ResponseEntity<BookDetail> getBookDetailsById(@RequestParam String bookId) {
+    public ResponseEntity<Book> getBookDetailsById(@RequestParam String bookId) {
         log.info("fetching book detail by {}", bookId);
-        BookDetail bookDetail = bookDetailService.findBookDetailById(bookId);
+        Book bookDetail = bookDetailService.findBookDetailById(bookId);
         log.info("successfully fetch book detail");
 
         return new ResponseEntity<>(bookDetail, HttpStatus.OK);
