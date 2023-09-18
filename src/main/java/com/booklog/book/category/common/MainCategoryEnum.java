@@ -6,11 +6,11 @@ import java.util.Optional;
 public enum MainCategoryEnum {
     GENERAL("0", "총류"),
     PHILOSOPHY("1", "철학"),
-    THEOLOGY("2", "종교학"),
-    SOCIOLOGY("3", "사회학"),
+    THEOLOGY("2", "종교"),
+    SOCIOLOGY("3", "사회"),
     NATURAL_SCIENCE("4", "자연과학"),
     TECHNOLOGY("5", "기술과학"),
-    ARTS("6", "예술학"),
+    ARTS("6", "예술"),
     LINGUISTICS("7", "언어"),
     LITERATURE("8", "문학"),
     HISTORY("9", "역사");

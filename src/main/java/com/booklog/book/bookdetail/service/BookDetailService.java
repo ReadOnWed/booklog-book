@@ -1,7 +1,7 @@
 package com.booklog.book.bookdetail.service;
 
-import com.booklog.book.bookdetail.dto.BookDetail;
+import com.booklog.book.bookdetail.dto.Book;
 
 public interface BookDetailService {
-    BookDetail findBookDetailById(String bookId);
+    Book findBookDetailById(String bookId);
 }
