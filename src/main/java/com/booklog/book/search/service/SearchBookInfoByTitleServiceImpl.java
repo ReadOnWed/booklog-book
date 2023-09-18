@@ -1,8 +1,9 @@
 package com.booklog.book.search.service;
 
 import com.booklog.book.search.common.SearchBookInfoServiceBeanName;
-import com.booklog.book.promotion.dto.BookInfoDto;
-import com.booklog.book.search.repository.SearchBookInfoByTitleRepository;
+import com.booklog.book.search.dto.BookInfo;
+import com.booklog.book.search.repository.SearchBookInfoRepository;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,11 +14,11 @@ import java.util.*;
 @RequiredArgsConstructor
 @Slf4j
 public class SearchBookInfoByTitleServiceImpl implements SearchBookInfoService {
-    private final SearchBookInfoByTitleRepository searchBookInfoByTitleRepository;
+    private final SearchBookInfoRepository searchBookInfoRepository;
 
     @Override
-    public List<BookInfoDto> findBookInfos(String title) {
+    public List<BookInfo> findBookInfos(String title) {
         log.info("searching book by title : {} in book title service...", title);
-        return searchBookInfoByTitleRepository.findBookInfos(title);
+        return BookInfo.listOf(searchBookInfoRepository.findBookInfoByTitleRegex(title));
     }
 }
