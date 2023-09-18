@@ -1,4 +1,4 @@
-package com.booklog.book.bookinfo.controller;
+package com.booklog.book.promotion.controller;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.booklog.book.bookinfo.common.PromotionType;
-import com.booklog.book.bookinfo.dto.BookInfoDto;
-import com.booklog.book.bookinfo.service.PromotionBookInfoService;
+import com.booklog.book.promotion.common.PromotionType;
+import com.booklog.book.promotion.dto.BookInfo;
+import com.booklog.book.promotion.service.PromotionBookInfoFacadeService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,26 +20,26 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/v1/books/promotion")
 @Slf4j
 public class PromotionBookInfoController {
-	private final PromotionBookInfoService promotionBookInfoService;
+	private final PromotionBookInfoFacadeService promotionBookInfoFacadeService;
 
 	@GetMapping("/top-rated")
- 	public ResponseEntity<List<BookInfoDto>> getTopRatedBooks() {
+ 	public ResponseEntity<List<BookInfo>> getTopRatedBooks() {
 		return getBooksInfos(PromotionType.TOP_RATED);
 	}
 
-	@GetMapping("/top-reviewed-in-month")
-	public ResponseEntity<List<BookInfoDto>> getMostReviewedInMonthBooks() {
-		return getBooksInfos(PromotionType.MOST_REVIEWED_IN_MONTH);
+	@GetMapping("/most-reviewed")
+	public ResponseEntity<List<BookInfo>> getMostReviewedBooks() {
+		return getBooksInfos(PromotionType.MOST_REVIEWED);
 	}
 
 	@GetMapping("/recent-reviewed")
-	public ResponseEntity<List<BookInfoDto>> getLatelyReviewedBooks() {
+	public ResponseEntity<List<BookInfo>> getLatelyReviewedBooks() {
 		return getBooksInfos(PromotionType.LATELY_REVIEWED);
 	}
 
-	private ResponseEntity<List<BookInfoDto>> getBooksInfos(PromotionType promotionType){
+	private ResponseEntity<List<BookInfo>> getBooksInfos(PromotionType promotionType){
 		log.info("fetching {}-books...", promotionType.getType());
-		List<BookInfoDto> books = promotionBookInfoService.findBookInfos(promotionType);
+		List<BookInfo> books = promotionBookInfoFacadeService.findBookInfos(promotionType);
 		log.info("successfully fetch {}-books...", promotionType.getType());
 		if(books.isEmpty()){
 			return new ResponseEntity<>(books, HttpStatus.NO_CONTENT);
