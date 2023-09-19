@@ -1,12 +1,10 @@
 package com.booklog.book.search.controller;
 
-import com.booklog.book.promotion.dto.BookInfoDto;
+import com.booklog.book.search.dto.BookInfo;
 import com.booklog.book.search.dto.BookInfoSearchTermDto;
 import com.booklog.book.search.service.SearchBookInfoFacadeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +20,7 @@ public class SearchBookInfoController {
     private final SearchBookInfoFacadeService searchBookInfoFacadeService;
 
     @GetMapping("/search")
-    public ResponseEntity<List<BookInfoDto>> searchBookInfos(
+    public List<BookInfo> searchBookInfos(
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String publisher,
@@ -41,11 +39,8 @@ public class SearchBookInfoController {
                 .author(author)
                 .build();
 
-        List<BookInfoDto> books = searchBookInfoFacadeService.findBookInfos(searchTermDto);
+        List<BookInfo> bookInfos = searchBookInfoFacadeService.findBookInfos(searchTermDto);
         log.info("successfully fetch search books...");
-        if(books.isEmpty()){
-            return new ResponseEntity<>(books, HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(books, HttpStatus.OK);
+        return bookInfos;
     }
 }

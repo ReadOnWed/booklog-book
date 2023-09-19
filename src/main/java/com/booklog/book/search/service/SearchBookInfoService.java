@@ -2,8 +2,8 @@ package com.booklog.book.search.service;
 
 import java.util.List;
 
-import com.booklog.book.promotion.dto.BookInfoDto;
+import com.booklog.book.search.dto.BookInfo;
 
 public interface SearchBookInfoService {
-    List<BookInfoDto> findBookInfos(String searchTerm);
+    List<BookInfo> findBookInfos(String searchTerm);
 }

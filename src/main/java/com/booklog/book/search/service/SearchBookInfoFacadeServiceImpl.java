@@ -1,8 +1,9 @@
 package com.booklog.book.search.service;
 
 import com.booklog.book.search.common.SearchBookInfoServiceBeanName;
-import com.booklog.book.promotion.dto.BookInfoDto;
+import com.booklog.book.search.dto.BookInfo;
 import com.booklog.book.search.dto.BookInfoSearchTermDto;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -17,8 +18,8 @@ public class SearchBookInfoFacadeServiceImpl implements SearchBookInfoFacadeServ
     private final Map<String, SearchBookInfoService> searchBookInfoServices;
 
     @Override
-    public List<BookInfoDto> findBookInfos(BookInfoSearchTermDto searchTermDto) {
-        Set<BookInfoDto> booksSet = new LinkedHashSet<>();
+    public List<BookInfo> findBookInfos(BookInfoSearchTermDto searchTermDto) {
+        Set<BookInfo> booksSet = new HashSet<>();
 
         for(Map.Entry<String, SearchBookInfoService> servicesEntry : searchBookInfoServices.entrySet()){
             String searchTerm = getSearchTermByStrategyType(searchTermDto, servicesEntry.getKey());
