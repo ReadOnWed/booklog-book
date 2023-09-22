@@ -21,6 +21,7 @@ public class BookInfo {
 	private String author;
 	private String publisher;
 	private String publicationDate;
+	private long likesCount;
 	private int totalReviewsCount;
 
 	public static List<BookInfo> listOf(List<BookInfoEntity> bookInfoEntities){
@@ -47,6 +48,10 @@ public class BookInfo {
 			return "";
 		}
 		return recentReviewDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	}
+
+	public void countLikes(long likesCount){
+		this.likesCount = likesCount;
 	}
 
 	@Override
