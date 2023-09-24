@@ -25,8 +25,7 @@ public class Book {
     private String mainCategoryName;
     private String subCategoryCode;
     private String subCategoryName;
-    private int viewsCount;
-    private int likesCount;
+    private long likesCount;
     private int rating;
     private String recentReviewDate;
     private String author;
@@ -47,7 +46,6 @@ public class Book {
             .mainCategoryName(mainDescriptionOf(bookEntity.getMainCategory()))
             .subCategoryCode(bookEntity.getSubCategory())
             .subCategoryName(subDescriptionOf(bookEntity.getSubCategory()))
-            .viewsCount(bookEntity.getViewsCount())
             .likesCount(bookEntity.getLikesCount())
             .rating(bookEntity.getRating())
             .recentReviewDate(bookEntity.getRecentReviewDate())
@@ -78,5 +76,9 @@ public class Book {
         return reviewEntities.stream()
             .map(Review::of)
             .collect(Collectors.toList());
+    }
+
+    public void countLikes(long likesCount){
+        this.likesCount = likesCount;
     }
 }
