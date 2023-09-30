@@ -2,6 +2,7 @@ package com.booklog.book.search.controller;
 
 import com.booklog.book.search.dto.BookInfo;
 import com.booklog.book.search.dto.BookInfoSearchTermDto;
+import com.booklog.book.search.service.SearchBookInfoByIdService;
 import com.booklog.book.search.service.SearchBookInfoFacadeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import java.util.List;
 @Slf4j
 public class SearchBookInfoController {
     private final SearchBookInfoFacadeService searchBookInfoFacadeService;
+    private final SearchBookInfoByIdService searchBookInfoByIdService;
 
     @GetMapping("/search")
     public List<BookInfo> searchBookInfos(
@@ -42,5 +44,11 @@ public class SearchBookInfoController {
         List<BookInfo> bookInfos = searchBookInfoFacadeService.findBookInfos(searchTermDto);
         log.info("successfully fetch search books...");
         return bookInfos;
+    }
+
+    @GetMapping("/searchById")
+    public BookInfo searchBookInfoById(@RequestParam String bookId){
+        log.info("fetching search book by {} ...", bookId);
+        return searchBookInfoByIdService.findBookInfo(bookId);
     }
 }

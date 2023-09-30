@@ -24,4 +24,6 @@ public interface SearchBookInfoRepository extends MongoRepository<BookInfoEntity
 	List<BookInfoEntity> findBookInfoByPublisherRegex(String publisher);
 
 	List<BookInfoEntity> findBookInfoByMainCategory(String category);
+
+	BookInfoEntity findBookInfoById(String bookId);
 }
