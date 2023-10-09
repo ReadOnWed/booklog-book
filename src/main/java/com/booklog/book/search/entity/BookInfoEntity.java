@@ -14,6 +14,7 @@ public class BookInfoEntity {
 	private String id;
 	private String title;
 	private String mainCategory;
+	private String subCategory;
 	private int rating;
 	private int totalReviewsCount;
 	private LocalDate recentReviewDate;
