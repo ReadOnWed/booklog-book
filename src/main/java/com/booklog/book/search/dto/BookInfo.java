@@ -28,7 +28,7 @@ public class BookInfo {
 	private String subCategory;
 	private String subCategoryName;
 	private long likesCount;
-	private int totalReviewsCount;
+	private int reviewsCount;
 
 	public static List<BookInfo> listOf(List<BookInfoEntity> bookInfoEntities){
 		return bookInfoEntities.stream()
@@ -47,7 +47,7 @@ public class BookInfo {
 			.author(bookInfoEntity.getAuthor())
 			.publisher(bookInfoEntity.getPublisher())
 			.publicationDate(bookInfoEntity.getPubdate())
-			.totalReviewsCount(bookInfoEntity.getTotalReviewsCount())
+			.reviewsCount(bookInfoEntity.getReviewsCount())
 			.build();
 	}
 
