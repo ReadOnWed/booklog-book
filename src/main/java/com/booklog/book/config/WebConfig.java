@@ -12,10 +12,5 @@ public class WebConfig implements WebMvcConfigurer {
 			.allowedOrigins("http://localhost:3000") // 리액트 애플리케이션의 도메인을 설정
 			.allowedMethods("GET", "POST", "PUT", "DELETE")
 			.allowCredentials(true);
-
-		registry.addMapping("/v1/reviews/**") // v1/reviews/ 경로에 대해서 CORS 설정
-			.allowedOrigins("http://localhost:3000") // 리액트 애플리케이션의 도메인을 설정
-			.allowedMethods("GET", "POST", "PUT", "DELETE")
-			.allowCredentials(true);
 	}
 }

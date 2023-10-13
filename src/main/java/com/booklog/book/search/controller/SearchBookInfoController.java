@@ -15,13 +15,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/books")
+@RequestMapping("/v1/books/search")
 @Slf4j
 public class SearchBookInfoController {
     private final SearchBookInfoFacadeService searchBookInfoFacadeService;
     private final SearchBookInfoByIdService searchBookInfoByIdService;
 
-    @GetMapping("/search")
+    @GetMapping("")
     public List<BookInfo> searchBookInfos(
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String category,
@@ -46,7 +46,7 @@ public class SearchBookInfoController {
         return bookInfos;
     }
 
-    @GetMapping("/searchById")
+    @GetMapping("/book-id")
     public BookInfo searchBookInfoById(@RequestParam String bookId){
         log.info("fetching search book by {} ...", bookId);
         return searchBookInfoByIdService.findBookInfo(bookId);

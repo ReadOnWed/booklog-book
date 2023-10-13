@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,7 +16,7 @@ import com.booklog.book.category.common.SubCategoryEnum;
 @Getter
 @Builder
 public class Book {
-    private String bookId;
+    private String id;
     private String title;
     private String subTitle;
     private String image;
@@ -31,12 +32,12 @@ public class Book {
     private String author;
     private String publisher;
     private String publicationDate;
+    private int reviewsCount;
     private List<Review> reviews;
-    private int totalReviewsCount;
 
     public static Book of(BookEntity bookEntity){
         return Book.builder()
-            .bookId(bookEntity.getBookId())
+            .id(bookEntity.getBookId())
             .title(bookEntity.getTitle())
             .subTitle(bookEntity.getSubTitle())
             .image(bookEntity.getBookId())
@@ -52,8 +53,8 @@ public class Book {
             .author(bookEntity.getAuthor())
             .publisher(bookEntity.getPublisher())
             .publicationDate(bookEntity.getPubdate())
+            .reviewsCount(bookEntity.getReviewsCount())
             .reviews(reviewsOf(bookEntity.getReviews()))
-            .totalReviewsCount(bookEntity.getTotalReviewsCount())
             .build();
     }
 
@@ -75,10 +76,12 @@ public class Book {
 
         return reviewEntities.stream()
             .map(Review::of)
+            .sorted(Comparator.comparing(Review::getCreatedAt).reversed())
             .collect(Collectors.toList());
     }
 
-    public void countLikes(long likesCount){
+    public Book countLikes(long likesCount){
         this.likesCount = likesCount;
+        return this;
     }
 }

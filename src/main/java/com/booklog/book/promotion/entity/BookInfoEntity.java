@@ -18,5 +18,5 @@ public class BookInfoEntity {
 	private String author;
 	private String publisher;
 	private String pubdate;
-	private int totalReviewsCount;
+	private int reviewsCount;
 }
