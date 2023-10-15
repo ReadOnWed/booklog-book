@@ -22,7 +22,7 @@ public class BookInfo {
 	private String author;
 	private String publisher;
 	private String publicationDate;
-	private int totalReviewsCount;
+	private int reviewsCount;
 
 	public static List<BookInfo> listOf(Page<BookInfoEntity> bookInfoEntities){
 		return bookInfoEntities.stream()
@@ -39,7 +39,7 @@ public class BookInfo {
 			.author(bookInfoEntity.getAuthor())
 			.publisher(bookInfoEntity.getPublisher())
 			.publicationDate(bookInfoEntity.getPubdate())
-			.totalReviewsCount(bookInfoEntity.getTotalReviewsCount())
+			.reviewsCount(bookInfoEntity.getReviewsCount())
 			.build();
 	}
 

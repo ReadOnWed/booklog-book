@@ -13,9 +13,7 @@ public class BookDetailServiceImpl implements BookDetailService{
     private final BookLikeService bookLikeService;
     @Override
     public Book findBookDetailById(String bookId) {
-        Book book = Book.of(bookDetailRepository.findBookEntityByBookId(bookId));
-        book.countLikes(bookLikeService.countLikesByBookId(bookId));
-
-        return book;
+        return Book.of(bookDetailRepository.findBookEntityByBookId(bookId))
+            .countLikes(bookLikeService.countLikesByBookId(bookId));
     }
 }
