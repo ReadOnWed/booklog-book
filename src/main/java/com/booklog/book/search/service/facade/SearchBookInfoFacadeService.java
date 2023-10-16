@@ -1,4 +1,4 @@
-package com.booklog.book.search.service;
+package com.booklog.book.search.service.facade;
 
 import com.booklog.book.search.dto.BookInfo;
 import com.booklog.book.search.dto.BookInfoSearchTermDto;

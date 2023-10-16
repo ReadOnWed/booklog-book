@@ -1,4 +1,4 @@
-package com.booklog.book.search.service;
+package com.booklog.book.search.service.subsystem;
 
 import java.util.List;
 
