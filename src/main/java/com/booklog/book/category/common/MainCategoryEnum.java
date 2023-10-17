@@ -22,8 +22,12 @@ public enum MainCategoryEnum {
         this.description = description;
     }
 
+    public String getCategory() {
+        return this.category;
+    }
+
     public String getDescription(){
-        return description;
+        return this.description;
     }
 
     // category 코드값을 입력으로 받아 적절한 description을 반환
