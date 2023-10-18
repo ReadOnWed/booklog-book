@@ -3,7 +3,7 @@ package com.booklog.book.search.controller;
 import com.booklog.book.search.dto.BookInfo;
 import com.booklog.book.search.dto.BookInfoSearchTermDto;
 import com.booklog.book.search.service.SearchBookInfoByIdService;
-import com.booklog.book.search.service.SearchBookInfoFacadeService;
+import com.booklog.book.search.service.facade.SearchBookInfoFacadeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,9 +41,7 @@ public class SearchBookInfoController {
                 .author(author)
                 .build();
 
-        List<BookInfo> bookInfos = searchBookInfoFacadeService.findBookInfos(searchTermDto);
-        log.info("successfully fetch search books...");
-        return bookInfos;
+        return searchBookInfoFacadeService.findBookInfos(searchTermDto);
     }
 
     @GetMapping("/book-id")
